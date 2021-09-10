@@ -124,7 +124,7 @@ def draw_squares(screen, squares):
         else: color = D_GREY
         pygame.draw.rect(screen, color, square.square)
 
-        if square.clicked == True:
+        if square.clicked == True and square.is_flag == False:
             if square.neighbor_bombs != 0 and square.is_bomb == False:
                 square_text = SQUARE_FONT.render(f'{bomb_number}', 1, text_color)
                 screen.blit(square_text, (square.square.left + GRID * 2, square.square.top + GRID* .5))
@@ -394,6 +394,7 @@ def main():
     playing = False
     win = False
     lose = False
+    win_time_flag = False
 
 
     clock = pygame.time.Clock()
@@ -514,7 +515,9 @@ def main():
 
         if win:
             playing = False
-            win_time = game_timer // 1000
+            if win_time_flag == False:
+                win_time = (pygame.time.get_ticks() - game_timer) // 1000
+                win_time_flag = True
             start_screen = pygame.display.set_mode((300, 300))
             event = win_screen(start_screen, win_time, difficulty, click_coords)
             print(event)
@@ -523,6 +526,7 @@ def main():
                 win = False
                 click_coords = (0,0)
                 first_click = True
+                win_time_flag = False
             elif event == 1:
                 event = -1
                 pygame.quit()
