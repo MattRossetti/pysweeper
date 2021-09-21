@@ -1,5 +1,5 @@
 # Pysweeper!
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <URL https://www.youtube.com/watch?v=lVo8Z0_m7XU>
 #### Description:
 Pysweeper recreates the game 'minesweeper' in Python using PyGame.
 The goal of the game is to identify all 'mines' as quickly as possible and left click every square that is not a mine.
