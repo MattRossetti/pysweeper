@@ -144,7 +144,7 @@ def draw_squares(screen, squares):
 
 
 def draw_text(screen, bombs, game_lens):
-    game_text = GAME_FONT.render(f'BOMBS: {bombs}', 1, BLACK)
+    game_text = GAME_FONT.render(f'MINES: {bombs}', 1, BLACK)
     screen.blit(game_text, (20, 22))
 
 
